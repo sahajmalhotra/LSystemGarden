@@ -669,14 +669,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1459143351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ed65c26c4ef94483825c2c980bc628e, type: 3}
+  m_Script: {fileID: 11500000, guid: a3fa8ef0f16c34b3794cf2f34365e060, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestGenerate
+  m_EditorClassIdentifier: Assembly-CSharp::SystemManager
   turtle: {fileID: 313344553}
+  useBush: 0
   iterations: 5
   angle: 25
-  lengthScale: 0.75
+  lengthScale: 0.78
   radiusScale: 0.7
+  growthSpeed: 3
+  growOverTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
