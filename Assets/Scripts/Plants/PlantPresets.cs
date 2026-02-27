@@ -24,11 +24,11 @@ public static class PlantPresets
         return new PlantPreset
         {
             presetName = "Bush/Vine",
-            axiomLength = 1.0f,
+            axiomLength = 0.75f,
             axiomRadius = 0.06f,
-            defaultAngle = 32f,
-            lengthScale = 0.72f,
-            radiusScale = 0.78f,
+            defaultAngle = 38f,
+lengthScale = 0.70f,
+radiusScale = 0.80f,
             leafStartAge = 2,
             leafSizeMultiplier = 1.2f,
             includePitch = true,

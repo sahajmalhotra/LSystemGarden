@@ -25,6 +25,7 @@ public class SystemManager : MonoBehaviour
     {
         Generate();
     }
+[ContextMenu("Generate Now")]
 
     public void Generate()
     {

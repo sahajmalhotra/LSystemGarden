@@ -94,28 +94,33 @@ public class LSystem
     }
 
     private void ExpandBushF(Symbol s, List<Symbol> output)
-    {
-        // Bushes: shorter segments, more branching density
-        output.Add(new Symbol('F', s.length * lengthScale, s.radius * radiusScale, s.age + 1));
+{
+    // Bush goal: less upward trunk, more sideways branching and curl.
+    float l = s.length * lengthScale;
+    float r = s.radius * radiusScale;
+    int a = s.age + 1;
 
-        // Left cluster branch
-        output.Add(new Symbol('['));
-        output.Add(new Symbol('+'));
-        if (includePitch) output.Add(new Symbol('&'));
-        output.Add(new Symbol('F', s.length * lengthScale * 0.75f, s.radius * radiusScale * 0.80f, s.age + 1));
-        if (s.age >= leafStartAge) output.Add(new Symbol('L', leafSizeMultiplier * 1.1f, 0f, s.age));
-        output.Add(new Symbol(']'));
+    // Short forward step (keeps it connected but not tall)
+    output.Add(new Symbol('F', l * 0.65f, r * 0.95f, a));
 
-        // Middle forward with leaf
-        output.Add(new Symbol('F', s.length * lengthScale * 0.85f, s.radius * radiusScale * 0.90f, s.age + 1));
-        if (s.age >= leafStartAge) output.Add(new Symbol('L', leafSizeMultiplier, 0f, s.age));
+    // Left branch (stronger, with pitch)
+    output.Add(new Symbol('['));
+    output.Add(new Symbol('+'));
+    if (includePitch) output.Add(new Symbol('&'));
+    output.Add(new Symbol('F', l * 0.85f, r * 0.80f, a));
+    if (s.age >= leafStartAge) output.Add(new Symbol('L', leafSizeMultiplier * 1.2f, 0f, s.age));
+    output.Add(new Symbol(']'));
 
-        // Right cluster branch
-        output.Add(new Symbol('['));
-        output.Add(new Symbol('-'));
-        if (includePitch) output.Add(new Symbol('^'));
-        output.Add(new Symbol('F', s.length * lengthScale * 0.75f, s.radius * radiusScale * 0.80f, s.age + 1));
-        if (s.age >= leafStartAge) output.Add(new Symbol('L', leafSizeMultiplier * 1.1f, 0f, s.age));
-        output.Add(new Symbol(']'));
-    }
+    // Right branch (stronger, with pitch)
+    output.Add(new Symbol('['));
+    output.Add(new Symbol('-'));
+    if (includePitch) output.Add(new Symbol('^'));
+    output.Add(new Symbol('F', l * 0.85f, r * 0.80f, a));
+    if (s.age >= leafStartAge) output.Add(new Symbol('L', leafSizeMultiplier * 1.2f, 0f, s.age));
+    output.Add(new Symbol(']'));
+
+    // Optional: add a sideways “filler” leaf cluster (makes it bushy)
+    if (s.age >= leafStartAge)
+        output.Add(new Symbol('L', leafSizeMultiplier * 1.0f, 0f, s.age));
+}
 }
