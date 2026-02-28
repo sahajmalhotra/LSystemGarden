@@ -22,13 +22,15 @@ public class SystemManager : MonoBehaviour
     private int drawCount;
 
     void Start()
-    {
-        Generate();
-    }
+{
+    // Start empty so UI controls first generation
+    if (turtle != null) turtle.ClearPlant();
+}
 [ContextMenu("Generate Now")]
 
     public void Generate()
     {
+        Debug.Log($"SystemManager.Generate called. useBush={useBush}, iterations={iterations}");
         if (turtle == null)
         {
             Debug.LogError("SystemManager: Turtle not assigned.");

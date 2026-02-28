@@ -48,7 +48,7 @@ public class Turtle3D : MonoBehaviour
         if (clearFirst) ClearPlant();
         stack.Clear();
 
-        Vector3 pos = Vector3.zero;
+        Vector3 pos = new Vector3(0f, 0f, 0f);
         Quaternion rot = Quaternion.identity;
 
         float currentAngle = (angleDeg > 0f) ? angleDeg : defaultAngleDeg;
