@@ -202,3 +202,8 @@ Seasonal color changes
 Multiple plant instances in a garden
 Environmental interaction
 Procedural terrain
+
+Conclusion
+
+This project demonstrates how deterministic rewriting systems can generate complex three-dimensional plant structures. By extending the base D0L-System with parametric symbols and animated growth, the system moves beyond static procedural generation into dynamic simulation.
+The final result is a structured, interactive, and visually engaging procedural plant generator built entirely in Unity.
